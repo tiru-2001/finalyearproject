@@ -5,11 +5,7 @@ import "./login.scss";
 const Login = () => {
   return (
     <div className="app__login-container">
-      <motion.div
-        whileInView={{ x: [200, 0] }}
-        transition={{ ease: "easeIn", duration: 0.75 }}
-        className="app__login-subcontainer"
-      >
+      <div className="app__login-subcontainer">
         <div className="left">
           <div className="title-container">
             <h1>Welcome back !</h1>
@@ -37,7 +33,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

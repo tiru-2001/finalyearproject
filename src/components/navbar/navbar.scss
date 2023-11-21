@@ -1,4 +1,14 @@
 .app__navbar {
+  &.active {
+    background-color: var(--white-bg);
+    .app__links-container {
+      li {
+        .app__links {
+          color: gray;
+        }
+      }
+    }
+  }
   width: 100%;
   background-color: var(--white-bg);
   height: 70px;
@@ -10,6 +20,7 @@
   position: fixed;
   box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
   background: rgba(255, 255, 255, 0.25);
+  color: var(--white-bg);
 
   backdrop-filter: blur(4px);
   .logo {
@@ -27,7 +38,7 @@
       .app__links {
         text-decoration: none;
         text-transform: capitalize;
-        color: var(--light-gray);
+        color: rgb(49, 48, 48);
       }
     }
     @media screen and (max-width: 900px) {

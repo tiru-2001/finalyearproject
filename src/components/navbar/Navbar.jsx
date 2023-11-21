@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
-import { images } from "../../constants/assets";
+import { Link, useLocation } from "react-router-dom";
+import images from "../../assets/index";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+
+  const [active, setActive] = useState(false);
   const [toggle, setToggle] = useState(false);
-  console.log("RENDRR");
+  const isActive = () => {
+    if (window.scrollY > 0 || pathname !== "/") {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  });
+
   return (
-    <div className="app__navbar">
+    <div className={active ? " active app__navbar " : "app__navbar"}>
       <div className="logo app__flex">
         <img src={images.logo} alt="logo" />
       </div>
@@ -20,22 +36,22 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link className="app__links" to="/Login">
+          <Link className="app__links" to="/login">
             Login
           </Link>
         </li>
         <li>
-          <Link className="app__links" to="/Register">
+          <Link className="app__links" to="/register">
             Register
           </Link>
         </li>
         <li>
-          <Link className="app__links" to="/contactus">
+          <Link className="app__links" to="/contact">
             Contact Us
           </Link>
         </li>
         <li>
-          <Link className="app__links" to="/aboutus">
+          <Link className="app__links" to="/about">
             About Us
           </Link>
         </li>

@@ -1,6 +1,12 @@
 .app {
   font-family: var(--font-base);
+  min-height: 100vh;
 }
+.lin {
+  text-decoration: none;
+  color: inherit;
+}
+
 .app__flex {
   display: flex;
   justify-content: center;
